@@ -20,50 +20,43 @@
     </style>
 
     <script type="text/javascript">
+
+      function generatePresent() {
+        let number = Math.round(Math.random() * 100)
+        let persent = "%"
+        return number + persent
+      }
+
+      function generateColorChannel() {
+        return Math.floor(Math.random() * 255)
+      }
+
+      function ganerateColor() {
+        let r = generateColorChannel()
+        let g = generateColorChannel()
+        let b = generateColorChannel()
+
+        let color = "rgb(" + [r,g,b].join() + ")"
+
+        return color
+      }
+
+      function changeCSS(element) {
+        element.css({
+          "width": generatePresent(),
+          "height": generatePresent(),
+          "top": generatePresent(),
+          "left": generatePresent(),
+          "background-color": ganerateColor()
+        })
+      }
+
       $(function() {
         $("div").each(function(index) {
-          let width = Math.round(Math.random() * 1000)
-          let height = Math.round(Math.random() * 1000)
-          let x = Math.round(Math.random() * 1000)
-          let y = Math.round(Math.random() * 1000)
-
-          let r = Math.floor(Math.random() * 255)
-          let g = Math.floor(Math.random() * 255)
-          let b = Math.floor(Math.random() * 255)
-
-          let color = [r,g,b].join()
-
-          console.log(height)
-
-          $(this).css({
-            "width": width + "px",
-            "height": height + "px",
-            "background-color": "rgb(" + color + ")",
-            "top": y + "px",
-            "left": x + "px"
-          })
+          changeCSS($(this))
 
           $(this).on("mouseenter", function() {
-            let width = Math.round(Math.random() * 1000)
-            let height = Math.round(Math.random() * 1000)
-            let x = Math.round(Math.random() * 1000)
-            let y = Math.round(Math.random() * 1000)
-
-            let r = Math.floor(Math.random() * 255)
-            let g = Math.floor(Math.random() * 255)
-            let b = Math.floor(Math.random() * 255)
-
-            let color = [r,g,b].join()
-
-            console.log(height)
-
-            $(this).css({
-              "width": width + "px",
-              "height": height + "px",
-              "background-color": "rgb(" + color + ")",
-              "top": y + "px",
-              "left": x + "px"
-            })
+            changeCSS($(this))
           })
         })
       })
