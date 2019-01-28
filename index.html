@@ -21,10 +21,17 @@
 
     <script type="text/javascript">
 
-      function generatePresent() {
-        let number = Math.round(Math.random() * 100)
-        let persent = "%"
-        return number + persent
+      function generatePresent(limit) {
+        let number = Math.round(Math.random() * limit)
+        return number
+      }
+
+      function generateSize() {
+        return generatePresent (95)
+
+      function genetateShift() {
+        let limit = 100 - size
+        return generatePresent(limit)
       }
 
       function generateColorChannel() {
@@ -42,11 +49,13 @@
       }
 
       function changeCSS(element) {
+        let width = generateSize()
+        let height = generateSize()
         element.css({
-          "width": generatePresent(),
-          "height": generatePresent(),
-          "top": generatePresent(),
-          "left": generatePresent(),
+          "width": width  + "%",
+          "height": height  + "%",
+          "top": generateShift(height)  + "%",
+          "left": generateShift(width)  + "%",
           "background-color": ganerateColor()
         })
       }
