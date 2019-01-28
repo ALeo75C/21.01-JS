@@ -20,6 +20,12 @@
     </style>
 
     <script type="text/javascript">
+      function generateRectangles(q) {
+        const element = "<div></div>"
+        let elements = ""
+
+        $("body").append("<div></div>")
+      }
 
       function generatePresent(limit) {
         let number = Math.round(Math.random() * limit)
@@ -28,8 +34,10 @@
 
       function generateSize() {
         return generatePresent (95)
+      }
 
-      function genetateShift() {
+      function generateShift() {
+        let size = ""
         let limit = 100 - size
         return generatePresent(limit)
       }
@@ -54,124 +62,25 @@
         element.css({
           "width": width  + "%",
           "height": height  + "%",
-          "top": generateShift(height)  + "%",
-          "left": generateShift(width)  + "%",
+          "top": generateShift(height) + "%",
+          "left": generateShift(width) + "%",
           "background-color": ganerateColor()
         })
       }
 
       $(function() {
-        $("div").each(function(index) {
-          changeCSS($(this))
-
-          $(this).on("mouseenter", function() {
+        $("div").each( function(index) {
             changeCSS($(this))
-          })
+        $(this).on("mouseenter", function() {
+          changeCSS($(this))
         })
       })
+    })
+
     </script>
 
   </head>
   <body>
     <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    </body>
+  </body>
 </html>
