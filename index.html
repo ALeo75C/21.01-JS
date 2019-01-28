@@ -24,7 +24,16 @@
         const element = "<div></div>"
         let elements = ""
 
-        $("body").append("<div></div>")
+        let step = ""
+        console.log(elements)
+
+        for (step = 0; step < q; step++) {
+          elements += element
+
+          console.log(elements)
+        }
+        console.log(elements)
+        $("body").append(elements)
       }
 
       function generatePresent(limit) {
@@ -69,6 +78,8 @@
       }
 
       $(function() {
+        generateRectangles(100)
+
         $("div").each( function(index) {
             changeCSS($(this))
         $(this).on("mouseenter", function() {
@@ -81,6 +92,5 @@
 
   </head>
   <body>
-    <div></div>
   </body>
 </html>
