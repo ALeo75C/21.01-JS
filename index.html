@@ -8,45 +8,75 @@
         position: absolute;
       }
       body {
+        background-color: #000;
         margin: 0;
         padding: 0;
       }
+      section {
+        width: 100vw;
+        height: 100vh;
+        background-image: url('you_died.png');
+        background-size: cover;
+        opacity: 0;
+      }
       div {
-        background: red;
-        width: 100px;
-        height: 100px;
+        background: yellow;
+        top: 0;
+        left: 0;
         transition: all 1s ease;
+        width: 100vw;
+        height: 100vh;
       }
     </style>
     <script src="jquery.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-      function criateNumber() {
+      function criateSize() {
         return Math.floor(Math.random() * 80) + 10
+      }
+
+      let width = criateSize()
+      let height = criateSize()
+
+      function criatePosition(a) {
+        let max = 100 - a
+        let real = Math.random() * max
+        if (real < 0 || max + real > 100) {
+          criatePosition(a)
+        } else {
+          return real
+        }
       }
 
       function changeCSS(element) {
         element.css({
-          "top": criateNumber() + "vh",
-          "left": criateNumber() + "vw"
+          "width": criateSize() + "vw",
+          "height": criateSize() + "vh",
+          "top": criatePosition(height) + "vh",
+          "left": criatePosition(width) + "vw"
         })
       }
+
+      // function checkOpacity(a) {
+      //   if (a === 0) {
+      //     $("section").css({"opacity": 1})
+      //   }
+      // }
+
       $(function() {
-        $("div").each(function(index) {
+        $("div").on("click", function() {
+          $(this).fadeIn()
           changeCSS($(this))
-          $(this).on("click", function() {
-            $(this).fadeIn()
-            changeCSS($(this))
-            $(this).fadeOut(3000)
-          })
+          $(this).fadeOut(10000)
+          // checkOpacity($("section").css({"opacity"})
         })
       })
 
     </script>
   </head>
   <body>
-    <div></div>
-    <div></div>
+    <section>
+    </section>
     <div></div>
   </body>
 </html>
